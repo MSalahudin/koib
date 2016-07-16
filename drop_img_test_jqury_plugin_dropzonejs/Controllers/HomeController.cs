@@ -64,6 +64,9 @@ namespace drop_img_test_jqury_plugin_dropzonejs.Controllers
           IList<upload> os= (List<upload>)Session["ilistuploadfiles"];
             ViewBag.Message = "Your application description page.";
 
+
+
+
             return View();
         }
 
