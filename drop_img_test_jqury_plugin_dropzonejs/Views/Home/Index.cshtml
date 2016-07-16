@@ -1,0 +1,114 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<link rel="stylesheet" href="~/Content/dropzone.css" />
+
+@*<link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">*@
+<link rel="stylesheet" href="~/Content/basic.min.css" />
+<style>
+    .dropzone .dz-preview .dz-error-message{
+        color:white;
+        top:145px;
+    }
+   
+</style>
+@section scripts{
+    @*<script src="https://rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script>*@
+    <script src="~/Scripts/dropzone-amd-module.js"></script>
+    <script src="~/Scripts/dropzone.js"></script>
+    <script>
+      
+        var myDropzone = new Dropzone("#dropzonejs", {
+            
+            paramName: "file",
+            addRemoveLinks: true,
+            maxFiles: 5,
+            //removedfile: function(file) {
+            //    var name = file.name;        
+            //    alert(name);
+            //},
+            accept: function (file, done) {
+                console.log("uploaded");
+                done();
+            },
+            init: function () {
+                this.on("maxfilesexceeded", function (file) {
+                    alert("No more files please!");
+                   
+                });
+            }
+            //init: function () {
+            //    this.on("maxfilesexceeded",function (file) {
+            //        this.removeAllFiles();
+            //        this.addFile(file);
+            //    });
+            //},
+
+
+        });
+
+
+        //myDropzone.options.myAwesomeDropzone = {
+        //    maxFiles: 1,
+        //    accept: function (file, done) {
+        //        console.log("uploaded");
+        //        done();
+        //    },
+        //    init: function () {
+        //        this.on("maxfilesexceeded", function (file) {
+        //            alert("No more files please!");
+        //        });
+        //    }
+        //};
+        //$("div#dropimg").dropzone({ url: "/file/post" });
+        //var Dropzone=new Dropzone();
+        //Dropzone.options.myAwesomeDropzone = {
+        //    maxFiles: 1,
+        //    accept: function (file, done) {
+        //        console.log("uploaded");
+        //        done();
+        //    },
+        //    init: function () {
+        //        this.on("maxfilesexceeded", function (file) {
+        //            alert("No moar files please!");
+        //        })
+        //    },
+
+        //};
+
+
+    </script>
+    
+    
+    
+    
+    }
+<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+<div class="col-md-12">
+
+    <form action="/Home/index" method="post" enctype="multipart/form-data" class="dropzone" id="dropzonejs">
+        
+        @*<div id="previews" class="dropzone-previews">hgsfdfd hsafdga hsdfasfd </div>*@
+     
+        @*<div class="fallback">
+            <input name="file" type="file" multiple />
+        </div>*@
+
+
+
+              <div class="dz-message">
+                            Drop files here or click to upload.
+                            <br> <span class="note">( Selected files maximum  <strong>5</strong>  uploaded.)</span>
+
+                        </div>
+            
+  
+
+
+</form>
+    
+</div>
